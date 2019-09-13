@@ -4,12 +4,16 @@ import home from './pages/home';
 import login from './pages/login';
 import signup from './pages/signup';
 import './App.css';
-
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
+import themeObject from './util/theme';
 import Navbar from './components/Navbar'
+const theme = createMuiTheme(themeObject);
 
 class App extends Component {
   render() {
     return (
+      <MuiThemeProvider theme={theme}>
       <div className='App' >
         <Router>
           <Navbar />
@@ -21,7 +25,9 @@ class App extends Component {
           </Switch>
           </div>
         </Router>
+        
       </div>
+      </MuiThemeProvider>
     )
   }
 }
