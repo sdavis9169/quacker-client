@@ -6,10 +6,11 @@ import signup from './pages/signup';
 import jwtDecode from 'jwt-decode';
 import AuthRoute from './util/AuthRoute';
 import './App.css';
+import axios from 'axios'
 
 import { Provider } from 'react-redux';
 import store from './redux/store';
-
+import { SET_AUTHENTICATED } from './redux/types';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 import themeObject from './util/theme';
@@ -17,17 +18,18 @@ import Navbar from './components/Navbar';
 
 const theme = createMuiTheme(themeObject);
 
-let authenticated;
+
+// let authenticated;
 // const token = localStorage.FBIdToken;
 // if (token) {
 //   const decodedToken = jwtDecode(token);
 //   if (decodedToken.exp * 1000 < Date.now()) {
-//     authenticated = false;
-//     window.location.href = '/login';
+//     window.location.href = '/login'
+//     authenticated = false
 //   } else {
-//     authenticated = true;
+//     authenticated = true
 //   }
-// };
+// }
 
 class App extends Component {
   render() {
