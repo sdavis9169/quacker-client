@@ -9,7 +9,7 @@ class home extends Component {
         screams: null
     }
     componentDidMount(){
-        axios.get('/getScreams')
+        axios.get('/screams')
             .then(res => {
                 this.setState({
                     screams: res.data
