@@ -13,6 +13,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 // Icons
 import EditIcon from '@material-ui/icons/Edit';
+import MyButton  from '../util/MyButton';
 
 const styles = {
   button: {
@@ -64,13 +65,13 @@ class EditDetails extends Component {
     const { classes } = this.props;
     return (
       <Fragment>
-        <Button
+        <MyButton
           tip="Edit Details"
           onClick={this.handleOpen}
           btnClassName={classes.button}
         >
           <EditIcon color="primary" />
-        </Button>
+        </MyButton>
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
@@ -96,7 +97,7 @@ class EditDetails extends Component {
                 name="website"
                 tpye="text"
                 label="Website"
-                placeholder="Your personal/professinal website"
+                placeholder="Your personal/professional website"
                 className={classes.textField}
                 value={this.state.website}
                 onChange={this.handleChange}
