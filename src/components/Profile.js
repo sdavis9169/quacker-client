@@ -82,6 +82,10 @@ handleEditPicture = () => {
   fileInput.click();
 }
 
+handleLogout = () => {
+  this.props.logoutUser();
+}
+
   render() {
     const {
       classes,
@@ -135,6 +139,11 @@ handleEditPicture = () => {
       <CalendarToday color='primary'/>{' '}
       <span>Joined {dayjs(createdAt).format('MMM YYYY')}</span>
           </div>
+          <Tooltip title='Logout' placement='top'>
+            <IconButton onClick={this.handleLogout}>
+            <KeyboardReturn color='primary' />
+            </IconButton>
+          </Tooltip>
         </div>
       </Paper>
     ) : (
