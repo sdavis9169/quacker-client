@@ -13,6 +13,7 @@ import MyButton from '../util/MyButton'
 import ChatIcon from '@material-ui/icons/Chat'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder'
+import ScreamDialog from './ScreamDialog';
 import { connect} from 'react-redux';
 import { likeScream, unlikeScream } from '../redux/actions/dataActions'
 import DeleteScream from './DeleteScream'
@@ -108,6 +109,11 @@ export class Scream extends Component {
                     <ChatIcon color='primary' />
                     </MyButton>
                     <span>{commentCount} comments</span>
+                    <ScreamDialog 
+                    screamId={screamId}
+                    userHandle={userHandle}
+                    openDialog={this.props.openDialog}
+                    />
                 </CardContent>
             </Card>
         )

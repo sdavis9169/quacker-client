@@ -24,9 +24,6 @@ class Navbar extends Component {
           {authenticated ? (
             <Fragment>
               <PostScream />
-              <MyButton tip="New post" >
-              <AddIcon color='primary' />
-              </MyButton>
               <MyButton tip="Home">
               <HomeIcon color='primary' />
               </MyButton>
