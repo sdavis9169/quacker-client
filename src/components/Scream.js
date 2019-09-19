@@ -17,6 +17,7 @@ import ScreamDialog from './ScreamDialog';
 import { connect} from 'react-redux';
 import { likeScream, unlikeScream } from '../redux/actions/dataActions'
 import DeleteScream from './DeleteScream'
+import  LikeButton from './LikeButton';
 
 const styles = {
     card: {
@@ -72,22 +73,7 @@ export class Scream extends Component {
           }
            } = this.props;
 
-           const likeButton = !authenticated ? (
-              <MyButton tip='Like' >
-                <Link to='/login'>
-                  <FavoriteBorder color='primary' />
-                </Link>
-              </MyButton>
-           ) : this.likedScream() ? (
-            <MyButton tip='undo like' onClick={this.unlikeScream} >
-              <FavoriteIcon color='primary' />
-            </MyButton>
-           ) : (
-            <MyButton tip='like' onClick={this.likeScream} >
-              <FavoriteBorder color='primary' />
-            </MyButton>
-           );
-
+           
         const deleteButton = authenticated && userHandle === handle ? (
           <DeleteScream screamId={screamId} />
         ) : null
@@ -103,7 +89,7 @@ export class Scream extends Component {
                     {deleteButton}
                     <Typography variant='body2' color='textSecondary' >{dayjs(createdAt).fromNow()}</Typography>
                     <Typography variant='body1' >{body}</Typography>
-                    {likeButton}
+                    <LikeButton screamId={screamId} />
                     <span>{likeCount}</span>
                     <MyButton tip="comments">
                     <ChatIcon color='primary' />
