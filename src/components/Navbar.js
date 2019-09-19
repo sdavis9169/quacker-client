@@ -6,7 +6,7 @@ import MyButton from '../util/MyButton';
 import AddIcon from '@material-ui/icons/Add'
 import HomeIcon from '@material-ui/icons/Home'
 import Notifications from '@material-ui/icons/Notifications'
-// import PostScream from '../scream/PostScream';
+import PostScream from './PostScream';
 // import Notifications from './Notifications';
 // MUI stuff
 import AppBar from '@material-ui/core/AppBar';
@@ -23,6 +23,7 @@ class Navbar extends Component {
         <Toolbar className="nav-container">
           {authenticated ? (
             <Fragment>
+              <PostScream />
               <MyButton tip="New post" >
               <AddIcon color='primary' />
               </MyButton>
