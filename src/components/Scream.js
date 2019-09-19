@@ -15,6 +15,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite'
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder'
 import { connect} from 'react-redux';
 import { likeScream, unlikeScream } from '../redux/actions/dataActions'
+import DeleteScream from './DeleteScream'
 
 const styles = {
     card: {
@@ -65,7 +66,8 @@ export class Scream extends Component {
             likeCount, 
             commentCount },
           user: {
-            authenticated
+            authenticated,
+            credentials: { handle }
           }
            } = this.props;
 
@@ -83,7 +85,12 @@ export class Scream extends Component {
             <MyButton tip='like' onClick={this.likeScream} >
               <FavoriteBorder color='primary' />
             </MyButton>
-           )
+           );
+
+        const deleteButton = authenticated && userHandle === handle ? (
+          <DeleteScream screamId={screamId} />
+        ) : null
+
         return (
             <Card className={classes.card} >
                 <CardMedia
@@ -92,6 +99,7 @@ export class Scream extends Component {
                 title='profile image' />
                 <CardContent className={classes.content} >
                     <Typography variant='h5' component={Link} to={`/users/${userHandle}`} color='primary' >{userHandle}</Typography>
+                    {deleteButton}
                     <Typography variant='body2' color='textSecondary' >{dayjs(createdAt).fromNow()}</Typography>
                     <Typography variant='body1' >{body}</Typography>
                     {likeButton}
